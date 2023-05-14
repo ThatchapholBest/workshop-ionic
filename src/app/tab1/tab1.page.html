@@ -9,9 +9,37 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div style="text-align: center;">
+    <ion-toolbar>
+      <ion-title>BMI Calculator</ion-title>
+    </ion-toolbar>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-input label="Weight: " type="number" [clearInput]="true" placeholder="Enter Weight(Kg): " [(ngModel)]="weight" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Height: " type="number" [clearInput]="true"
+          placeholder="Enter Height(Cm): " [(ngModel)]="height"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  </ion-grid>
+
+  <div style = "text-align: center;">
+    <ion-button id="present-alert" (click)="bmiCal()">Calculate</ion-button>
+    <ion-alert
+      trigger="present-alert"
+      header="Your BMI:"
+      subHeader="{{bmiString}}"
+      message="{{bmi}}"
+      [buttons]="alertButtons"
+    ></ion-alert>
+  </div>
 </ion-content>
